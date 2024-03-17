@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:skeletons/skeletons.dart';
 import '../Controllers/home_controller.dart';
+import '../Delegate/search_breeds.dart';
 import '../Models/Network/colors.dart';
 import '../Models/Network/common.dart';
 import '../Models/breeds.dart';
@@ -19,7 +20,14 @@ class HomePage extends StatelessWidget {
           appBar: AppBar(
             title: const Text('Raza de los gatos'),
             actions: [
-              IconButton(onPressed: () {}, icon: const Icon(Icons.search))
+              IconButton(
+                  onPressed: () {
+                    showSearch(
+                      context: context,
+                      delegate: CatSearchDelegate(cats: _.myListBreeds),
+                    );
+                  },
+                  icon: const Icon(Icons.search))
             ],
           ),
           body: Padding(
