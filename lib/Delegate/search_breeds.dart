@@ -47,8 +47,8 @@ class CatSearchDelegate extends SearchDelegate<CatBreeds> {
         return ListTile(
           title: Text(breed.name),
           onTap: () {
-            Navigator.pushNamed(context, CatSearchDelegate.routeName,
-                arguments: breed);
+           Navigator.pushNamed(context, CatSearchDelegate.routeName,
+           arguments: breed);
             //close(context, breed);
           },
         );
@@ -59,7 +59,7 @@ class CatSearchDelegate extends SearchDelegate<CatBreeds> {
   @override
   Widget buildSuggestions(BuildContext context) {
     List<CatBreeds> suggestionList = query.isEmpty
-        ? cats.sublist(0, 5) // Show top 5 breeds as suggestions
+        ? cats.sublist(0, 5) 
         : cats
             .where((breed) =>
                 breed.name.toLowerCase().contains(query.toLowerCase()))
